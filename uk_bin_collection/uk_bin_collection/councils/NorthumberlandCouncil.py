@@ -52,13 +52,17 @@ class CouncilClass(AbstractGetBinDataClass):
 
             # Wait for and click cookie button
             cookie_button = wait.until(
-                EC.element_to_be_clickable(By.CLASS_NAME, "accept-all")
+                EC.element_to_be_clickable(
+                    (By.CLASS_NAME, "accept-all")
+                )
             )
             cookie_button.click()
 
             # Wait for and find postcode input
             inputElement_pc = wait.until(
-                EC.presence_of_element_located(By.ID, "postcode")
+                EC.presence_of_element_located(
+                    (By.ID, "postcode")
+                )
             )
 
             # Enter postcode and submit
@@ -67,7 +71,9 @@ class CouncilClass(AbstractGetBinDataClass):
 
             # Wait for and find house number input
             selectElement_address = wait.until(
-                EC.presence_of_element_located(By.ID, "address")
+                EC.presence_of_element_located(
+                    (By.ID, "address")
+                )
             )
 
             dropdown = Select(selectElement_address)
@@ -75,13 +81,17 @@ class CouncilClass(AbstractGetBinDataClass):
 
             # Click submit button and wait for results
             submit_button = wait.until(
-                EC.element_to_be_clickable(By.CLASS_NAME, "govuk-button")
+                EC.element_to_be_clickable(
+                    (By.CLASS_NAME, "govuk-button")
+                )
             )
             submit_button.click()
 
             # Wait for results to load
             route_summary = wait.until(
-                EC.presence_of_element_located(By.CLASS_NAME, "govuk-table")
+                EC.presence_of_element_located(
+                    (By.CLASS_NAME, "govuk-table")
+                )
             )
 
             now = datetime.now()
