@@ -58,7 +58,7 @@ class CouncilClass(AbstractGetBinDataClass):
 
             # Wait for and find postcode input
             inputElement_pc = wait.until(
-                EC.presence_of_element_located((By.ID, "postcode")
+                EC.presence_of_element_located(By.ID, "postcode")
             )
 
             # Enter postcode and submit
